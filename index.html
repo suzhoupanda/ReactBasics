@@ -19,6 +19,37 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
       <script type="text/babel">
 
+        var PLAYERS = [
+          {
+            name: "John Halson",
+            score: 34,
+            id: 1,
+          },
+          {
+            name:"Bruce Wayne",
+            score: 55,
+            id: 2,
+          },
+
+          {
+            name:"Bane Wilson",
+            score:89,
+            id: 3,
+          },
+
+           {
+            name:"Chris Penguin",
+            score:45,
+            id: 4,
+          },
+           {
+            name:"Billy Riddler",
+            score:66,
+            id: 5,
+          }
+
+        ]
+
       function Header(props){
         return( <div className="header">
                   <h1>{props.title}</h1>
@@ -69,8 +100,11 @@
               <Header title={props.title} />
 
               <div className="players">
-                <Player name="Bill Smith" score={32} />
-                <Player name="Jordan Baker" score={43} />
+                {props.players.map(function(player){
+                  return <Player name={player.name} score={player.score} id={player.id} />
+                  })
+                }
+      
               </div>
             </div>
     );
@@ -78,13 +112,18 @@
 
         Application.propTypes = {
           title: React.PropTypes.string,
+          players: React.PropTypes.arrayOf(React.PropTypes.shape({
+            name: React.PropTypes.string.isRequired,
+            score: React.PropTypes.number.isRequired,
+            id: React.PropTypes.number.isRequired
+          })).isRequired
         }
 
         Application.defaultProps = {
           title: "Scoreboard"
         }
 
-          ReactDOM.render(<Application />, document.getElementById('container'));
+          ReactDOM.render(<Application  players={PLAYERS}/>, document.getElementById('container'));
 
 
       </script>
