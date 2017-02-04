@@ -18,15 +18,50 @@
         <script src="https://unpkg.com/react-dom@15.4.0/dist/react-dom.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
       <script type="text/babel">
-        function Application(){
+
+      function Application(){
           return(
-            <div>
-              <h1>Hello from React!</h1>
-              <p> I was rendered from the application component</p>
+            <div className="scoreboard">
+              <div className="header">
+                <h1>Scoreboard</h1>
+              </div>
+
+          <div className="players">
+            <div className="player">
+                <div className="player-name">
+                  John Smith
+                </div>
+          
+                <div className="player-score">
+                </div>
+
+                <div className="counter">
+                  <button className="counter-action decrement"> - </button>
+                  <div className="counter-score"> 31 </div>
+                  <button className="counter-action increment"> + </button>
+                </div>
             </div>
 
-              );
-          }
+               <div className="player">
+                <div className="player-name">
+                  Bill Wordsworth
+                </div>
+          
+                <div className="player-score">
+                </div>
+
+                <div className="counter">
+                  <button className="counter-action decrement"> - </button>
+                  <div className="counter-score"> 28 </div>
+                  <button className="counter-action increment"> + </button>
+                </div>
+            </div>
+      </div>
+    </div>
+    );
+}
+
+        
 
           ReactDOM.render(<Application />, document.getElementById('container'));
 
