@@ -19,11 +19,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
       <script type="text/babel">
 
-      function Application(){
+      function Application(props){
           return(
             <div className="scoreboard">
               <div className="header">
-                <h1>Scoreboard</h1>
+                <h1>{props.title}</h1>
               </div>
 
           <div className="players">
@@ -63,7 +63,7 @@
 
         
 
-          ReactDOM.render(<Application />, document.getElementById('container'));
+          ReactDOM.render(<Application title="My ScoreBoard"/>, document.getElementById('container'));
 
 
       </script>
