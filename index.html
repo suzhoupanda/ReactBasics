@@ -116,10 +116,26 @@
         players: React.PropTypes.array.isRequired,
       };
 
+
+var Stopwatch = React.createClass({
+    render: function(){
+      return (
+        <div className="stopwatch">
+          <h2> Stopwatch </h2>
+          <div className="stopwatch-time">0</div>
+          <button>Start</button>
+          <button>Reset</button>
+        </div>
+        )
+    }
+
+});
+
       function Header(props){
         return( <div className="header">
                   <h1>{props.title}</h1>
                   <Stats players={props.players} />
+                  <Stopwatch />
                 </div>
 
               );
